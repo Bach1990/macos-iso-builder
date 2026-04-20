@@ -176,7 +176,12 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          path: out/*.dmg|out/*.dmg.img
+          name: macOS_Tahoe_${{ inputs.macos_version }}
+          path: |
+            *.dmg.img
+            *.dmg.img*
+            *.dmg.img.???
+          if-no-files-found: error
           compression-level: 0
           retention-days: 15
           archive: false

@@ -166,7 +166,7 @@ jobs:
       - name: Create macOS image
         id: create_image
         run: |
-          ./mkmaciso "${{ inputs.macos_version }}" "${{ inputs.image_format }}"
+          ./mkmaciso "${{ inputs.macos_version }}" "${{ inputs.image_format }}" --use-direct-links --split 2000
           if [ "${{ inputs.image_format }}" == "iso" ]; then
             echo "image_name=$(basename *.iso)" >> $GITHUB_OUTPUT
           else
